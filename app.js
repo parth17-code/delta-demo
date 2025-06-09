@@ -106,15 +106,20 @@ app.use("/listings" , listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
 app.use("/" , userRouter);
 
+ app.get("/", (req, res) => {
+  res.redirect("/listings");
+});
+
 app.use((err,req,res,next)=>{
     let {statusCode =500, message="Something went wrong"} = err;
     res.render("error.ejs" , {message});
     //res.status(statusCode).send(message); 
  })
 
-app.all('/{*any}', (req, res, next) => {
+app.all('/{*any}', (err,req, res, next) => {
     // You can call next with an error or handle 404
-    res.status(404).send('Page Not Found');
+    let {statusCode =500, message="Page not Found"} = err;
+    res.render("error.ejs" , {message});
 });
 
 
