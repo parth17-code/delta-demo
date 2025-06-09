@@ -1,0 +1,123 @@
+<% layout("/layouts/boilerplate") %> 
+
+    <!--<h3>All Listings</h3> -->
+
+    <style>
+      #filters{
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+      }
+      .filter{
+        text-align: center;
+        margin-right: 2rem;
+        margin-top: 2rem;
+        opacity: 0.7;
+      }
+      .filter:hover{
+        opacity: 1;
+        cursor: pointer;
+      }
+      .tax-info{
+        display: none;
+      }
+      .tax-toggle{
+        margin-top: 1rem;
+        border: 1px solid black;
+        border-radius: 1rem;
+        height: 3.2rem;
+        padding: 0.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-left: 1rem;
+      }
+     
+    </style>
+
+    <div id="filters">
+      <div class="filter">
+            <div><i class="fa-solid fa-fire"></i></div>
+            <p>Trending</p>
+      </div>
+      <div class="filter">
+            <div><i class="fa-solid fa-bed"></i></div>
+            <p>Rooms</p>
+      </div>
+      <div class="filter">
+            <div><i class="fa-solid fa-mountain-city"></i></div>
+            <p>Iconic Cities</p>
+      </div>
+      <div class="filter">
+            <div><i class="fa-solid fa-mountain"></i></div>
+            <p>Mountains</p>
+      </div>
+      <div class="filter">
+            <div><i class="fa-brands fa-fort-awesome"></i></div>
+            <p>Castles</p>
+      </div>
+      <div class="filter">
+            <div><i class="fa-solid fa-person-swimming"></i></div>
+            <p>Amazing Pools</p>
+      </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-campground"></i></div>
+            <p>Camping</p>
+      </div>
+      <div class="filter">
+            <div><i class="fa-solid fa-cow"></i></div>
+            <p>Farms</p>
+      </div>
+      <div class="filter">
+            <div><i class="fa-solid fa-snowflake"></i></div>
+            <p>Arctic</p>
+      </div>
+       <div class="filter">
+            <div><i class="fa-solid fa-igloo"></i></div>
+            <p>Domes</p>
+      </div>
+      <div class="tax-toggle">
+      <div class="form-check-reverse form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+            <label class="form-check-label" for="switchCheckDefault">Display Total After Taxes</label>
+      </div>
+      </div>
+    </div>
+
+     <div class="row row-cols-lg-4 row-cols-md-2 row-cols-sm-1 g-4 mt-1" > <!--you can also add: row row-cols-lg-3 WHich means that for every row at large screen there should be min 3 cols-->
+    <%for(let listing of allListings){ %>
+        <div class="col"> <!--an Immediate .col class must come for bootstrap to recog what is considered as col-->
+        <a href="/listings/<%= listing._id %>" class="listing-link">
+    <div class="card listing-card" style="width: 20rem; height:auto;">
+        <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image" style="height: 20rem;">
+        <div class="card-img-overlay"><i class="fa-regular fa-heart"></i>  <i class="fa-solid fa-arrow-right"></i></i></div>
+        <div class="card-body">
+          <p class="card-title"><b><%= listing.title %></b></p>
+          <p class="card-text"> &#8377; <%= listing.price.toLocaleString("en-IN") %>  <i class="tax-info"> &nbsp; &nbsp;+ 18% GST</i></p>
+          <p class="card-text"><%= listing.description %>/night</p>
+          <p class="card-text"><%= listing.location %></p>
+          <p class="card-text"><%= listing.country %></p>
+        </div>
+        </a>
+        </div>
+      </div>
+      <% } %>
+     </div>
+
+     <script>
+     let taxSwitch = document.getElementById("switchCheckDefault");
+     taxSwitch.addEventListener("click" , ()=>{
+        let taxinfo = document.getElementsByClassName("tax-info");
+        for(info of taxinfo){
+          if(info.style.display != "inline"){
+          info.style.display = "inline";
+          }
+          else{
+            info.style.display = "none";
+          }
+        }
+     })
+     </script>
+
+
+ 

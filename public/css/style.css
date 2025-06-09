@@ -1,0 +1,144 @@
+body{
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+} 
+
+.container{
+    flex: 1;
+}
+
+.navbar{
+    height: 5rem;
+}
+
+.navbar-brand{
+    color: #fe424d;
+    font-size: 2rem;
+}
+
+.nav-link{
+    color: #222222 !important;
+}
+
+.f-info-links a{
+    text-decoration: none;
+    color: #222222;
+}
+
+.f-info-links a:hover{
+    text-decoration: underline;
+}
+
+.f-info-socials , .f-info-links , .f-companyName{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.f-info-socials i{
+    font-size: 1.1rem;
+    margin-right: 0.7rem;
+    margin-top: 0.3rem;
+}
+
+.f-info{
+    text-align: center;
+    display: flex;
+    height: 7rem;
+    background-color: #ebebeb;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+}
+
+/*.card-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4rem;
+} */
+
+.listing-card{
+    border: none;
+    margin-bottom: 2rem;
+}
+
+.card-img-top{
+    border-radius: 2rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+.card-body{
+    padding: 0;
+}
+
+.listing-link{
+    color: #222222;
+    text-decoration: none;
+}
+
+.card-img-overlay:hover .fa-arrow-right{  /*dont give space between hover*/
+    opacity: 1;
+    color: #222222;
+    background-color: #ebebeb;
+}
+
+.fa-heart{
+    font-size: 1.2rem;
+    color: #ebebeb;
+}
+
+.fa-arrow-right{
+    position: absolute;
+    opacity: 0;
+  top: 155px;
+  right: 10px;
+  font-size: 1.7rem;
+  border-radius: 50rem;
+  transition: all 0.3s;
+}
+
+.add-btn{
+    background-color: #fe424d;
+    border: none;
+    font-size: 1.1rem;
+    border-radius: 2rem;
+}
+
+.show-image{
+    height: 30vh ; /*30 of view port*/
+}
+
+.btns{
+    display: flex;
+}
+
+.show-card{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.btn-signup:hover{
+    background-color: lightgreen;
+}
+
+.d-flex {
+    display: flex;
+    gap: 12px; /* Adjusts space between buttons */
+    align-items: center;
+}
+
+/*Map*/
+#map{
+    height: 400px;
+    width: 80vh;
+}
+
+
+

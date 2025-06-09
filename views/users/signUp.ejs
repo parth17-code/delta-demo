@@ -1,0 +1,38 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="row">
+    <div class="col-8 offset-3">
+        <h1>SignUp for Ventoura</h1>
+        <form action="/signup" method="POST" class="needs-validation" novalidate>
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input name="username" id="username" type="text" class="form-control" required>
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                  <div class="invalid-feedback">
+                    Please add Title
+                  </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input name="email" id="email" type="text" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input name="password" id="password" type="password" class="form-control" required>
+            </div>
+
+            <button class="btn btn-success btn-signup" type="submit">SignUp</button> 
+        </form>
+
+        <div class="d-flex align-items-center gap-3 mt-3">
+        <form action="/login" method="GET" novalidate>
+            <button class="btn add-btn" type="submit">LogIn</button>      
+        </form>
+        <label class="text-muted small">already have an account?</label> 
+        </div>
+    </div>
+</div>

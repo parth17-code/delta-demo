@@ -1,0 +1,21 @@
+<% if(success && success.length) { %> <!--Here even though you gave if(success) still you will see the green alert. Thats bcoz success does exist, its just that its empty.THIS IS BCOZ YOU HAVE FIRST CREATED SUCCESS AND THEN GIVEN VALUE TO IT-->
+<div class="alert alert-success alert-dismissible fade show col-6 offset-3" role="alert">
+   <%= success %>
+   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  <%} %>
+
+  <% if(deleted && deleted.length) { %> <!--Here even though you gave if(success) still you will see the green alert. Thats bcoz success does exist, its just that its empty.THIS IS BCOZ YOU HAVE FIRST CREATED SUCCESS AND THEN GIVEN VALUE TO IT-->
+    <div class="alert alert-danger alert-dismissible fade show col-6 offset-3" role="alert">
+       <%= deleted %>
+       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      <%} %>
+
+      <% if(error && error.length) { %> <!--Here even though you gave if(success) still you will see the green alert. Thats bcoz success does exist, its just that its empty.THIS IS BCOZ YOU HAVE FIRST CREATED SUCCESS AND THEN GIVEN VALUE TO IT-->
+        <div class="alert alert-danger alert-dismissible fade show col-6 offset-3" role="alert">
+           <%= error %>
+           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          <%} %>      
+
