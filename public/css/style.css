@@ -137,7 +137,9 @@ body{
 /*Map*/
 #map{
     height: 400px;
-    width: 80vh;
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
 }
 
 
