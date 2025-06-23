@@ -18,6 +18,12 @@ const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js"); 
+const cors = require("cors")
+
+app.use(cors({
+  origin: "https://delta-demo-r3oq.onrender.com", //fron end domain
+  credentials: true
+}));
 
 
 app.set("view engine" , "ejs");
