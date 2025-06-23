@@ -32,22 +32,35 @@ module.exports.newController = (req,res)=>{
 }
 
 module.exports.createController = async (req,res,next)=>{
-    let response = await geocodingClient.forwardGeocode({
-        query: req.body.listing.location,
-        limit: 1,
-      })
-        .send()
-       
-     // let {title , description , image , price , location , country } = req.body;
-    let url = req.file.path;
-    let filename = req.file.filename;
+    try {
+    const geoResponse = await geocodingClient.forwardGeocode({
+      query: req.body.listing.location,
+      limit: 1,
+    }).send();
+
     const newListing = new Listings(req.body.listing);
     newListing.owner = req.user._id;
-    newListing.image = {url , filename};
-    newListing.geometry = response.body.features[0].geometry;
+
+    
+    if (req.file) {
+      const { path: url, filename } = req.file;
+      newListing.image = { url, filename };
+    }
+
+    
+    if (geoResponse.body.features.length > 0) {
+      newListing.geometry = geoResponse.body.features[0].geometry;
+    }
+
     await newListing.save();
-    req.flash("success" , "new Listing Created");
-   res.redirect("/listings");
+
+    req.flash("success", "New listing created!");
+    res.redirect("/listings");
+
+  } catch (err) {
+    console.error("Error in createController:", err);
+    res.status(500).json({ error: "Something went wrong while creating listing." });
+  }
     }
 
 module.exports.updateController = async(req,res)=>{
